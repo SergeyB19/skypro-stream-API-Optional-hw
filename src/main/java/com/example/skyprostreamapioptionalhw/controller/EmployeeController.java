@@ -14,29 +14,27 @@ public class EmployeeController {
         this.employeeServiceimpl = employeeServiceimpl;
     }
 
-    @GetMapping(path = "/departments/max-salary")
-    public String maxSalaryEmployee(@RequestParam("salary") int salary,
-                                    @RequestParam("departmentId") int departmentId) {
-        return employeeServiceimpl.maxSalaryEmployee(employee);
+    @GetMapping(path = "/Employee/add")
+    public String addEmployee(@RequestParam("firstName") String firstName,
+                              @RequestParam("lastName") String lastName) {
+        Employee employee = new Employee(firstName, lastName);
+        employeeServiceimpl.add(employee);
+        return "Сотрудник добавлен";
     }
 
-    @GetMapping(path = "/departments/min-salary")
-    public String minSalaryEmployee(@RequestParam("salary") int salary,
-                                    @RequestParam("departmentId") int departmentId) {
-        return employeeServiceimpl.minSalaryEmployee(employee);
-
+    @GetMapping(path = "/Employee/remove")
+    public String removeEmployee(@RequestParam("firstName") String firstName,
+                                 @RequestParam("lastName") String lastName) {
+        Employee employee = new Employee(firstName, lastName);
+        employeeServiceimpl.remove(employee);
+        return "Сотрудник удален";
     }
 
-    @GetMapping(path = "/departments/all")
-    public String allEmployeeInDepartment(@RequestParam("fullName") String fullName,
-                                          @RequestParam("department") Integer department) {
-        return employeeServiceimpl.allEmployeeInDepartment(employee);
+    @GetMapping(path = "/Employee/find")
+    public String findEmployee(@RequestParam("firstName") String firstName,
+                               @RequestParam("lastName") String lastName) {
+        Employee employee = new Employee(firstName, lastName);
+        employeeServiceimpl.find(employee);
+        return "Сотрудник найден";
     }
-
-    @GetMapping(path = "/departments/all")
-    public String allEmployeeInDepartment(@RequestParam("fullName") String fullName,
-                                          @RequestParam("department") Integer department) {
-       return employeeServiceimpl.allEmployeeDivisionByDepartment(employee);
-    }
-
 }
