@@ -8,15 +8,15 @@ import java.util.stream.Stream;
 
 @Service
 public class DepartmentServiceimpl {
-    private EmployeeServiceimpl employeeServiceimpl;
+    private EmployeeService employeeService;
 
-    public DepartmentServiceimpl(EmployeeServiceimpl employeeServiceimpl) {
-        this.employeeServiceimpl = employeeServiceimpl;
+    public DepartmentServiceimpl(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     @Override
     public Employee maxSalaryEmployee(int salary, int departmentId) {
-        Comparator.comparingInt(employee -> employee.getSalary()) {
+        return salary.stream().sorted((Comparator.comparingInt(employee -> employee.getSalary()) {
         }
     }
 
@@ -24,7 +24,7 @@ public class DepartmentServiceimpl {
     @Override
     public Employee minSalaryEmployee(int salary, int departmentId) {
         Stream<Integer> min = Stream.of(salary);
-        Comparator.comparingInt(employee -> employee.getSalary()) {
+        return salary.stream().sorted((Comparator.comparingInt(employee -> employee.getSalary()) {
         }
     }
 
