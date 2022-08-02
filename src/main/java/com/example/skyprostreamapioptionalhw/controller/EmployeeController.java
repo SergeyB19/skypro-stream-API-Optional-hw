@@ -19,7 +19,7 @@ public class EmployeeController {
                               @RequestParam("lastName") String lastName) {
         Employee employee = new Employee(firstName, lastName);
         employeeServiceimpl.add(employee);
-        return "Сотрудник добавлен";
+        return employee;
     }
 
     @GetMapping(path = "/Employee/remove")
@@ -27,7 +27,7 @@ public class EmployeeController {
                                  @RequestParam("lastName") String lastName) {
         Employee employee = new Employee(firstName, lastName);
         employeeServiceimpl.remove(employee);
-        return "Сотрудник удален";
+        return employee;
     }
 
     @GetMapping(path = "/Employee/find")
@@ -35,6 +35,6 @@ public class EmployeeController {
                                @RequestParam("lastName") String lastName) {
         Employee employee = new Employee(firstName, lastName);
         employeeServiceimpl.find(employee);
-        return "Сотрудник найден";
+        return employee;
     }
 }

@@ -15,26 +15,6 @@ public class EmployeeServiceimpl implements EmployeeService {
     }
 
     @Override
-    public Employee minSalaryEmployee(int salary, int departmentId) {
-        return employee;
-    }
-
-    @Override
-    public Employee allEmployeeInDepartment(String firstName, String lastName) {
-        return employee;
-    }
-
-    @Override
-    public Employee allEmployeeDivisionByDepartment(String firstName, String lastName) {
-        return null;
-    }
-
-    @Override
-    public Employee maxSalaryEmployee(int salary, int departmentId) {
-        return employee;
-    }
-
-    @Override
     public Employee add(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
         if (employees.containsKey(employee.getFullName())) {

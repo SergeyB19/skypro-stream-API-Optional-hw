@@ -1,15 +1,19 @@
 package com.example.skyprostreamapioptionalhw.controller;
 
+import com.example.skyprostreamapioptionalhw.model.Employee;
+import com.example.skyprostreamapioptionalhw.service.DepartmentService;
 import com.example.skyprostreamapioptionalhw.service.DepartmentServiceimpl;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+
 @RestController
 public class DepartmentController {
-    private final DepartmentServiceimpl departmentService;
+    private final DepartmentService departmentService;
 
-    public DepartmentController(DepartmentServiceimpl departmentService) {
+    public DepartmentController(DepartmentService departmentService) {
         this.departmentService = departmentService;
     }
 
@@ -25,14 +29,14 @@ public class DepartmentController {
     }
 
     @GetMapping(path = "/departments/all")
-    public String allEmployeeInDepartment(@RequestParam("fullName") String fullName,
-                                          @RequestParam("department") Integer department) {
-        return employee;
+    public String allEmployeeInDepartment(@RequestParam("departmentId") Integer departmentId) {
+
+        return Employee;
     }
 
     @GetMapping(path = "/departments/all")
-    public String allEmployeeInDepartment(@RequestParam("fullName") String fullName,
-                                          @RequestParam("department") Integer department) {
-        return employee;
+    public String allEmployeeInDepartment() {
+
+        return Map <Integer departmentId, String Employee> = new HashMap();
     }
 }
