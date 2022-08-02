@@ -5,12 +5,12 @@ import org.springframework.stereotype.Service;
 
 
 public interface DepartmentService {
-    Employee minSalaryEmployee((int salary, int departmentId);
+    Employee minSalaryEmployee(int departmentId);
 
-    Employee allEmployeeInDepartment(String firstName, String lastName);
+    Employee allEmployeeInDepartment();
 
-    Employee allEmployeeDivisionByDepartment(String firstName, String lastName);
+    Employee allEmployeeDivisionByDepartment();
 
 
-    Employee maxSalaryEmployee(int salary, int departmentId);
+    Employee maxSalaryEmployee(int departmentId);
 }

@@ -4,20 +4,26 @@ import com.example.skyprostreamapioptionalhw.model.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
+import java.util.stream.Stream;
 
 @Service
 public class DepartmentServiceimpl {
+    private EmployeeServiceimpl employeeServiceimpl;
+
+    public DepartmentServiceimpl(EmployeeServiceimpl employeeServiceimpl) {
+        this.employeeServiceimpl = employeeServiceimpl;
+    }
 
     @Override
     public Employee maxSalaryEmployee(int salary, int departmentId) {
         Comparator.comparingInt(employee -> employee.getSalary()) {
-
         }
     }
 
 
     @Override
     public Employee minSalaryEmployee(int salary, int departmentId) {
+        Stream<Integer> min = Stream.of(salary);
         Comparator.comparingInt(employee -> employee.getSalary()) {
         }
     }

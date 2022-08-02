@@ -13,10 +13,4 @@ public interface EmployeeService {
     Employee find(String firstName, String lastName);
 
     Collection<Employee> findAll();
-
-    void add(Employee employee);
-
-    void remove(Employee employee);
-
-    void find(Employee employee);
 }
