@@ -19,24 +19,24 @@ public class DepartmentController {
 
     @GetMapping(path = "/departments/max-salary")
     public String maxSalaryEmployee(@RequestParam("departmentId") Integer departmentId) {
-        return employee;
+        return maxSalaryEmployee(departmentId);
     }
 
     @GetMapping(path = "/departments/min-salary")
     public String minSalaryEmployee(@RequestParam("departmentId") Integer departmentId) {
-        return employee;
+        return minSalaryEmployee(departmentId);
 
     }
 
     @GetMapping(path = "/departments/all")
     public String allEmployeeInDepartment(@RequestParam("departmentId") Integer departmentId) {
 
-        return Employee;
+        return allEmployeeInDepartment();
     }
 
     @GetMapping(path = "/departments/all")
     public String allEmployeeInDepartment() {
 
-        return Map <Integer departmentId, String Employee> = new HashMap();
+        return allEmployeeInDepartment();
     }
 }

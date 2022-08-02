@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 public interface DepartmentService {
     Employee minSalaryEmployee(int departmentId);
 
-    Employee allEmployeeInDepartment();
+    Employee allEmployeeInDepartment(int departmentId);
 
-    Employee allEmployeeDivisionByDepartment();
+    Employee allEmployeeDivisionByDepartment(int departmentId);
 
 
     Employee maxSalaryEmployee(int departmentId);
