@@ -5,13 +5,18 @@ import com.example.skyprostreamapioptionalhw.model.Employee;
 import java.util.Collection;
 
 public interface EmployeeService {
-    Employee minSalaryEmployee((int salary, int departmentId);
 
+    Employee add(String firstName, String lastName);
 
-    Employee allEmployeeInDepartment(String firstName, String lastName);
+    Employee remove(String firstName, String lastName);
 
-    Employee allEmployeeDivisionByDepartment(String firstName, String lastName);
+    Employee find(String firstName, String lastName);
 
+    Collection<Employee> findAll();
 
-    Employee maxSalaryEmployee(int salary, int departmentId);
+    void add(Employee employee);
+
+    void remove(Employee employee);
+
+    void find(Employee employee);
 }
