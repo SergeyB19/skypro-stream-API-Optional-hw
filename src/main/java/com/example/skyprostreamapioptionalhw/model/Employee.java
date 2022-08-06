@@ -1,67 +1,63 @@
 package com.example.skyprostreamapioptionalhw.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 public class Employee {
-    private final String firstName;
-    private final String lastName;
-    private int salary;
-    private int departmentId;
+    @JsonProperty("firstName")
+    private final String name;
+    @JsonProperty("lastName")
+    private final String surname;
+    private final int department;
+    private final double salary;
 
-    public Employee(String firstName, String lastName, int salary, int departmentId) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Employee(String name,
+                    String surname,
+                    int department,
+                    double salary) {
+        this.name = name;
+        this.surname = surname;
+        this.department = department;
         this.salary = salary;
-        this.departmentId = departmentId;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getSurname() {
+        return surname;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
-    public int getDepartmentId() {
-        return departmentId;
-    }
-
-    public void setDepartmentId(int departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getFullName() {
-        return firstName + " " + lastName;
+    public int getDepartment() {
+        return department;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Employee)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Employee employee = (Employee) o;
-        return Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
+        return department == employee.department && Double.compare(employee.salary, salary) == 0 && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(firstName,lastName);
+    public int hashCode()    {
+        return Objects.hash(name, surname, department, salary);
     }
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-
+        return String.format("ФИ: %s %s, отдел: %d, ЗП: %.2f", surname, name, department, salary);
     }
+
 }
