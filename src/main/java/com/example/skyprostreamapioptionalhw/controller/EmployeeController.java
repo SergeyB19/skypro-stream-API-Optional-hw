@@ -1,40 +1,46 @@
 package com.example.skyprostreamapioptionalhw.controller;
 
 import com.example.skyprostreamapioptionalhw.model.Employee;
-import com.example.skyprostreamapioptionalhw.service.EmployeeServiceimpl;
+import com.example.skyprostreamapioptionalhw.service.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
+@RequestMapping("/employee")
 public class EmployeeController {
-    private final EmployeeServiceimpl employeeServiceimpl;
+    private final EmployeeService employeeService;
 
-    public EmployeeController(EmployeeServiceimpl employeeServiceimpl) {
-        this.employeeServiceimpl = employeeServiceimpl;
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
-    @GetMapping(path = "/Employee/add")
-    public String addEmployee(@RequestParam("firstName") String firstName,
-                              @RequestParam("lastName") String lastName) {
-        Employee employee = new Employee(firstName, lastName);
-        employeeServiceimpl.add(employee);
-        return employee;
+    @GetMapping(path = "/add")
+    public String addEmployee(@RequestParam("firstName") String name,
+                              @RequestParam("lastName") String surname,
+                              @RequestParam("departmentId") int department,
+                              @RequestParam double salary) {
+        return employeeService.add(name, surname, department, salary);
     }
 
-    @GetMapping(path = "/Employee/remove")
-    public String removeEmployee(@RequestParam("firstName") String firstName,
-                                 @RequestParam("lastName") String lastName) {
-        Employee employee = new Employee(firstName, lastName);
-        employeeServiceimpl.remove(employee);
-        return employee;
+    @GetMapping(path = "/remove")
+    public String removeEmployee(@RequestParam("firstName") String name,
+                                 @RequestParam("lastName") String surname) {
+        return employeeService.remove(name, surname);
     }
 
-    @GetMapping(path = "/Employee/find")
-    public String findEmployee(@RequestParam("firstName") String firstName,
-                               @RequestParam("lastName") String lastName) {
-        Employee employee = new Employee(firstName, lastName);
-        employeeServiceimpl.find(employee);
-        return employee;
+    @GetMapping(path = "find")
+    public String findEmployee(@RequestParam("firstName") String name,
+                               @RequestParam("lastName") String surname) {
+        return employeeService.find(name, surname);
+    }
+
+    @GetMapping
+    public List<Employee> getAll() {
+        return employeeService.getAll();
     }
 }
+
